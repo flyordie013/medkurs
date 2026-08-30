@@ -11,34 +11,46 @@
    ========================================================= */
 
 /* ---------- 1. Токены ---------- */
+/* Тёмная тема — основная и намеренная. Светлая существует
+   как вежливость к тем, кто её выбрал системно. */
 :root{
-  --paper:#EDF0E9;
-  --paper-2:#E4E9DF;
-  --card:#FBFCFA;
-  --ink:#0F1D18;
-  --ink-2:#48594F;
-  --ink-3:#7B8C81;
-  --rule:#D2DBCE;
-  --rule-2:#B6C4B3;
+  --paper:#0A1512;
+  --paper-2:#0D1B16;
+  --card:#13231D;
+  --card-2:#182A22;
+  --ink:#ECF3ED;
+  --ink-2:#9FB6A8;
+  --ink-3:#778F80;
+  --rule:#1E332A;
+  --rule-2:#2C4639;
 
-  --pine:#14564A;
-  --pine-2:#2C8471;
-  --pine-ink:#0E4239;
-  --pine-soft:#DDE8E1;
+  --pine:#3FBF93;
+  --pine-2:#5FD9AE;
+  --pine-ink:#6FE0B8;
+  --pine-soft:#102C24;
 
-  --signal:#BF4527;
-  --signal-ink:#A43A20;
-  --signal-soft:#F7E4DC;
+  --gold:#C9A961;
+  --gold-soft:#2A2314;
+
+  --signal:#E4714E;
+  --signal-ink:#F08D6D;
+  --signal-soft:#2E1912;
 
   --wa:#25D366;
-  --wa-deep:#128C7E;
+  --wa-deep:#1BAE80;
 
-  --deep:#0C1A16;          /* тёмные полосы на светлой теме */
-  --deep-ink:#E6EEE7;
-  --deep-ink-2:#93A89A;
-  --deep-rule:#20342C;
+  --deep:#060F0C;
+  --deep-ink:#ECF3ED;
+  --deep-ink-2:#9FB6A8;
+  --deep-rule:#172A22;
 
-  --gold:#B08237;
+  /* Объём: подсветка сверху + глубокая тень снизу. */
+  --bevel:inset 0 1px 0 rgba(255,255,255,.06);
+  --lift:var(--bevel), 0 2px 4px rgba(0,0,0,.4), 0 22px 50px -28px rgba(0,0,0,.9);
+  --lift-2:var(--bevel), 0 4px 10px rgba(0,0,0,.5), 0 44px 90px -40px rgba(0,0,0,1);
+  --card-bg:linear-gradient(180deg,#17281F 0%,#111F1A 100%);
+  --glow-a:radial-gradient(120% 85% at 18% -10%, rgba(63,191,147,.16), transparent 62%);
+  --glow-b:radial-gradient(90% 70% at 92% 8%, rgba(201,169,97,.10), transparent 60%);
 
   --sans:"Onest","Helvetica Neue",Arial,sans-serif;
   --serif:"Literata",Georgia,"Times New Roman",serif;
@@ -46,54 +58,45 @@
 
   --wrap:1240px;
   --pad:20px;
-  --r:18px;      /* карточки */
-  --r-s:12px;     /* поля, мелкие элементы */
-  --r-btn:999px;  /* кнопки — таблетка */
-
-  --lift:0 1px 1px rgba(15,29,24,.04),0 12px 32px -20px rgba(15,29,24,.5);
-  --lift-2:0 2px 3px rgba(15,29,24,.05),0 34px 70px -34px rgba(15,29,24,.62);
+  --r:18px;
+  --r-s:12px;
+  --r-btn:999px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#0A1512;
-    --paper-2:#0E1D18;
-    --card:#12241E;
-    --ink:#E4EDE6;
-    --ink-2:#A0B3A6;
-    --ink-3:#7C9184;
-    --rule:#1E332B;
-    --rule-2:#2C463B;
 
-    --pine:#3FAF97;
-    --pine-2:#57C6AD;
-    --pine-ink:#6FD7BE;
-    --pine-soft:#12302A;
-
-    --signal:#E0785A;
-    --signal-ink:#EE9376;
-    --signal-soft:#2C1811;
-
-    --deep:#060F0D;
-    --deep-ink:#E4EDE6;
-    --deep-ink-2:#8CA294;
-    --deep-rule:#1A2C25;
-
-    --gold:#D3A65C;
-
-    --lift:0 1px 1px rgba(0,0,0,.5),0 14px 36px -22px rgba(0,0,0,.95);
-    --lift-2:0 2px 4px rgba(0,0,0,.6),0 38px 80px -38px rgba(0,0,0,1);
+/* Светлая палитра — только если человек выбрал её сам или системно. */
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --paper:#EDF0E9; --paper-2:#E4E9DF; --card:#FBFCFA; --card-2:#FFFFFF;
+    --ink:#0F1D18; --ink-2:#48594F; --ink-3:#7B8C81;
+    --rule:#D2DBCE; --rule-2:#B6C4B3;
+    --pine:#14564A; --pine-2:#1C7360; --pine-ink:#0E4239; --pine-soft:#DDE8E1;
+    --gold:#9A7B33; --gold-soft:#F2EAD6;
+    --signal:#BF4527; --signal-ink:#A43A20; --signal-soft:#F7E4DC;
+    --wa:#25D366; --wa-deep:#128C7E;
+    --deep:#0C1A16; --deep-ink:#E6EEE7; --deep-ink-2:#93A89A; --deep-rule:#20342C;
+    --bevel:inset 0 1px 0 rgba(255,255,255,.9);
+    --lift:0 1px 1px rgba(15,29,24,.04), 0 12px 32px -20px rgba(15,29,24,.5);
+    --lift-2:0 2px 3px rgba(15,29,24,.05), 0 34px 70px -34px rgba(15,29,24,.62);
+    --card-bg:linear-gradient(180deg,#FFFFFF 0%,#F7F9F5 100%);
+    --glow-a:radial-gradient(120% 85% at 18% -10%, rgba(20,86,74,.07), transparent 62%);
+    --glow-b:radial-gradient(90% 70% at 92% 8%, rgba(154,123,51,.07), transparent 60%);
   }
 }
-:root[data-theme="dark"]{
-  --paper:#0A1512; --paper-2:#0E1D18; --card:#12241E;
-  --ink:#E4EDE6; --ink-2:#A0B3A6; --ink-3:#7C9184;
-  --rule:#1E332B; --rule-2:#2C463B;
-  --pine:#3FAF97; --pine-2:#57C6AD; --pine-ink:#6FD7BE; --pine-soft:#12302A;
-  --signal:#E0785A; --signal-ink:#EE9376; --signal-soft:#2C1811;
-  --deep:#060F0D; --deep-ink:#E4EDE6; --deep-ink-2:#8CA294; --deep-rule:#1A2C25;
-  --gold:#D3A65C;
-  --lift:0 1px 1px rgba(0,0,0,.5),0 14px 36px -22px rgba(0,0,0,.95);
-  --lift-2:0 2px 4px rgba(0,0,0,.6),0 38px 80px -38px rgba(0,0,0,1);
+:root[data-theme="light"]{
+  --paper:#EDF0E9; --paper-2:#E4E9DF; --card:#FBFCFA; --card-2:#FFFFFF;
+  --ink:#0F1D18; --ink-2:#48594F; --ink-3:#7B8C81;
+  --rule:#D2DBCE; --rule-2:#B6C4B3;
+  --pine:#14564A; --pine-2:#1C7360; --pine-ink:#0E4239; --pine-soft:#DDE8E1;
+  --gold:#9A7B33; --gold-soft:#F2EAD6;
+  --signal:#BF4527; --signal-ink:#A43A20; --signal-soft:#F7E4DC;
+  --wa:#25D366; --wa-deep:#128C7E;
+  --deep:#0C1A16; --deep-ink:#E6EEE7; --deep-ink-2:#93A89A; --deep-rule:#20342C;
+  --bevel:inset 0 1px 0 rgba(255,255,255,.9);
+  --lift:0 1px 1px rgba(15,29,24,.04), 0 12px 32px -20px rgba(15,29,24,.5);
+  --lift-2:0 2px 3px rgba(15,29,24,.05), 0 34px 70px -34px rgba(15,29,24,.62);
+  --card-bg:linear-gradient(180deg,#FFFFFF 0%,#F7F9F5 100%);
+  --glow-a:radial-gradient(120% 85% at 18% -10%, rgba(20,86,74,.07), transparent 62%);
+  --glow-b:radial-gradient(90% 70% at 92% 8%, rgba(154,123,51,.07), transparent 60%);
 }
 
 /* ---------- 2. База ---------- */
@@ -165,7 +168,7 @@ em.hl{font-style:normal;color:var(--pine-ink)}
 }
 .btn:active{transform:translateY(1px)}
 .btn svg{flex:0 0 auto}
-.btn-wa{background:var(--wa);color:#04240F;border-color:var(--wa)}
+.btn-wa{background:var(--wa);color:#04240F;border-color:var(--wa);box-shadow:0 10px 30px -14px var(--wa)}
 .btn-wa:hover{background:var(--wa-deep);border-color:var(--wa-deep);color:#fff}
 .btn-pine{background:var(--pine);color:#F4FBF7;border-color:var(--pine)}
 .btn-pine:hover{background:var(--pine-ink);border-color:var(--pine-ink)}
@@ -190,13 +193,17 @@ em.hl{font-style:normal;color:var(--pine-ink)}
 .hdr.stuck .hdr-in{height:64px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);flex:0 0 auto}
 .logo-mark{
-  width:36px;height:36px;flex:0 0 auto;border:1.5px solid var(--pine);color:var(--pine-ink);
-  display:grid;place-items:center;border-radius:11px
+  width:38px;height:38px;flex:0 0 auto;border-radius:11px;
+  display:grid;place-items:center;color:var(--pine-ink);
+  background:linear-gradient(160deg,color-mix(in srgb,var(--pine) 26%,transparent),transparent);
+  border:1px solid color-mix(in srgb,var(--pine) 55%,transparent);
+  box-shadow:var(--bevel)
 }
+.logo-mark svg{width:22px;height:22px}
 .logo-mark svg{width:18px;height:18px}
 .logo b{display:block;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:-.03em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .logo i{display:block;font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nav{display:none;margin-left:auto;gap:0;min-width:0;overflow:hidden}
+.nav{display:none;margin-left:auto;gap:0;flex:0 0 auto}
 .nav a{
   padding:8px 13px;font-size:14.5px;font-weight:500;color:var(--ink-2);text-decoration:none;
   white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s
@@ -221,8 +228,8 @@ em.hl{font-style:normal;color:var(--pine-ink)}
 .hdr .btn-wa{display:none}
 .burger{display:grid}
 @media(min-width:1060px){.nav{display:flex}.burger{display:none}}
-@media(min-width:1200px){.hdr-phone{display:inline-block}}
-@media(min-width:1340px){.hdr .btn-wa{display:inline-flex}}
+@media(min-width:1300px){.hdr-phone{display:inline-block}}
+@media(min-width:1460px){.hdr .btn-wa{display:inline-flex}}
 /* На узких телефонах шапка обязана уместить бургер:
    поджимаем логотип, переключатель языка и иконки. */
 /* Ниже десктопа логотип обязан уметь ужиматься, иначе он выдавливает бургер. */
@@ -278,17 +285,26 @@ section{scroll-margin-top:86px}
   .head .idx{grid-row:1/span 3}
 }
 .head .idx{
-  font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--ink-3);
-  padding-top:.75em
+  font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--gold);
+  padding-top:.75em;position:relative
+}
+@media(min-width:960px){
+  .head .idx::before{
+    content:"";position:absolute;top:0;left:0;width:34px;height:1px;background:var(--gold);opacity:.55
+  }
 }
 .band-deep .head .idx{color:var(--deep-ink-2)}
 .head h2{margin:0}
 .head .lede{margin-top:18px}
 
 /* ---------- 8. Первый экран ---------- */
-.hero{padding:52px 0 0;position:relative}
+.hero{padding:52px 0 0;position:relative;isolation:isolate}
+.hero::before{
+  content:"";position:absolute;inset:-10% -20% 0;z-index:-1;pointer-events:none;
+  background:var(--glow-a),var(--glow-b)
+}
 @media(min-width:900px){.hero{padding:78px 0 0}}
-.hero-grid{display:grid;gap:34px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
 @media(min-width:1020px){.hero-grid{grid-template-columns:minmax(0,1.55fr) minmax(0,.95fr);gap:64px;align-items:end}}
 .hero h1{margin:22px 0 0}
 .hero h1 .l2{display:block;color:var(--pine-ink)}
@@ -306,7 +322,16 @@ section{scroll-margin-top:86px}
 .marks span{display:block;color:var(--ink-2);font-size:14.5px;margin-top:3px;line-height:1.45}
 
 /* ---------- 9. Дежурство: номер как главный элемент ---------- */
-.oncall{background:var(--deep);color:var(--deep-ink);margin-top:56px;overflow:hidden}
+.oncall{
+  background:var(--deep);color:var(--deep-ink);margin-top:56px;overflow:hidden;
+  position:relative;border-radius:var(--r);
+  box-shadow:var(--lift-2)
+}
+.oncall::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(80% 140% at 10% 100%, rgba(63,191,147,.16), transparent 60%)
+}
+.oncall-in{position:relative}
 @media(min-width:900px){.oncall{margin-top:78px}}
 .oncall-in{padding:34px 0 38px}
 @media(min-width:820px){.oncall-in{padding:40px 0 46px}}
@@ -341,7 +366,7 @@ section{scroll-margin-top:86px}
 @media(max-width:859px){.stats li:nth-child(even){padding-left:24px;border-left:1px solid var(--rule)}}
 .stats b{
   display:block;font-family:var(--serif);font-weight:700;font-size:clamp(34px,7vw,50px);
-  line-height:1;letter-spacing:-.04em;color:var(--pine-ink);font-variant-numeric:tabular-nums
+  line-height:1;letter-spacing:-.04em;color:var(--pine-ink);font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(63,191,147,.25)
 }
 .stats b{overflow-wrap:anywhere}
 /* Словесное значение — не число: набираем его текстом, а не крупной цифрой. */
@@ -403,7 +428,7 @@ section{scroll-margin-top:86px}
 .foot-note{margin-top:20px;font-size:14.5px;color:var(--ink-3);max-width:60ch}
 
 /* ---------- 13. Срочный блок ---------- */
-.urg-grid{display:grid;gap:34px}
+.urg-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
 @media(min-width:960px){.urg-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:62px;align-items:start}}
 .urg-tag{
   display:inline-flex;align-items:center;gap:10px;padding:9px 17px;border-radius:999px;
@@ -430,7 +455,7 @@ section{scroll-margin-top:86px}
 .steps p{font-size:15px;color:var(--ink-2);line-height:1.5}
 
 /* ---------- 15. Калькулятор ---------- */
-.calc{background:var(--card);border:1px solid var(--rule);box-shadow:var(--lift);display:grid;border-radius:var(--r);overflow:hidden}
+.calc{background:var(--card-bg);border:1px solid var(--rule);box-shadow:var(--lift);display:grid;grid-template-columns:minmax(0,1fr);border-radius:var(--r);overflow:hidden}
 @media(min-width:900px){.calc{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}}
 .calc-in{padding:30px;display:grid;gap:22px;align-content:start}
 .calc-out{background:var(--deep);color:var(--deep-ink);padding:30px;display:flex;flex-direction:column;justify-content:center}
@@ -442,7 +467,7 @@ section{scroll-margin-top:86px}
 }
 .control:focus{border-color:var(--pine);outline:none}
 select.control{
-  appearance:none;padding-right:44px;
+  appearance:none;padding-right:44px;min-width:0;text-overflow:ellipsis;
   background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
   background-position:calc(100% - 21px) calc(50% + 1px),calc(100% - 15px) calc(50% + 1px);
   background-size:6px 6px,6px 6px;background-repeat:no-repeat
@@ -468,12 +493,22 @@ textarea.control{min-height:112px;padding:14px 15px;line-height:1.5;resize:verti
 .calc-out .btn{margin-top:24px}
 
 /* ---------- 16. Обо мне ---------- */
-.about{display:grid;gap:38px}
+.about{display:grid;grid-template-columns:minmax(0,1fr);gap:38px}
 @media(min-width:960px){.about{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:60px;align-items:start}}
-.frame{border:1px solid var(--rule-2);padding:14px;background:var(--card);border-radius:var(--r)}
-.frame-in{aspect-ratio:4/5;display:grid;place-items:center;text-align:center;padding:26px;border:1px solid var(--rule);gap:0;border-radius:calc(var(--r) - 8px)}
-.frame-in svg{width:52px;height:52px;color:var(--rule-2);margin:0 auto}
-.frame-in p{font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-top:18px;line-height:1.8}
+/* Колонка с цифрами вместо фотографии: фото специалиста не будет,
+   поэтому доверие держат стаж и объём работы, набранные крупно. */
+.about-side{
+  display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);
+  border-radius:var(--r);overflow:hidden;align-content:start;box-shadow:var(--lift)
+}
+.bigstat{background:var(--card-bg);padding:26px 24px;margin:0}
+.bigstat b{
+  display:block;font-family:var(--serif);font-weight:700;
+  font-size:clamp(38px,6vw,54px);line-height:1;letter-spacing:-.04em;
+  color:var(--pine-ink);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 44px rgba(63,191,147,.25)
+}
+.bigstat span{display:block;margin-top:10px;font-size:14.5px;color:var(--ink-2);line-height:1.4}
 .pull{
   font-family:var(--serif);font-size:clamp(20px,2.7vw,28px);font-weight:600;line-height:1.3;
   letter-spacing:-.028em;margin:0 0 26px;text-wrap:balance
@@ -486,17 +521,21 @@ textarea.control{min-height:112px;padding:14px 15px;line-height:1.5;resize:verti
 
 /* ---------- 17. Отзывы ---------- */
 .rail{
-  display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;
+  display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
   margin:0 calc(var(--pad)*-1);padding:0 var(--pad);scrollbar-width:thin
 }
 .rail>*{scroll-snap-align:start;flex:0 0 min(86%,420px)}
 @media(min-width:960px){.rail{margin:0;padding:0}.rail>*{flex:0 0 380px}}
-.quote{padding:30px 30px 30px 0;border-top:1px solid var(--ink);display:flex;flex-direction:column;gap:18px}
-.quote+.quote{padding-left:30px;border-left:1px solid var(--rule)}
+.quote{
+  padding:26px;border:1px solid var(--rule);border-radius:var(--r);
+  background:var(--card-bg);box-shadow:var(--lift);
+  display:flex;flex-direction:column;gap:16px
+}
+
 .stars{display:flex;gap:3px;color:var(--gold)}
 .stars svg{width:15px;height:15px}
 .quote p{font-family:var(--serif);font-size:17px;line-height:1.6;flex:1 1 auto;letter-spacing:-.012em}
-.quote footer{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--rule)}
+.quote footer{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--rule);margin-top:auto}
 .ava{width:38px;height:38px;flex:0 0 auto;display:grid;place-items:center;border:1.5px solid var(--rule-2);font-family:var(--mono);font-size:14px;color:var(--ink-2);border-radius:50%}
 .quote footer b{display:block;font-size:15px;font-weight:600}
 .quote footer span{display:block;font-size:13px;color:var(--ink-3);margin-top:1px}
@@ -505,7 +544,7 @@ textarea.control{min-height:112px;padding:14px 15px;line-height:1.5;resize:verti
 
 /* ---------- 18. Районы ---------- */
 .zones{display:flex;flex-wrap:wrap;gap:10px}
-.zone{display:inline-flex;align-items:center;gap:9px;padding:12px 18px;border:1px solid var(--rule-2);border-radius:999px;font-size:15px;background:var(--card)}
+.zone{display:inline-flex;align-items:center;gap:9px;padding:12px 18px;border:1px solid var(--rule-2);border-radius:999px;font-size:15px;background:var(--card-bg);box-shadow:var(--bevel)}
 .zone svg{width:15px;height:15px;color:var(--pine-ink)}
 
 /* ---------- 19. FAQ ---------- */
@@ -529,7 +568,7 @@ textarea.control{min-height:112px;padding:14px 15px;line-height:1.5;resize:verti
 .faq-a p{padding:0 0 26px;color:var(--ink-2);font-size:16.5px;line-height:1.65;max-width:68ch}
 
 /* ---------- 20. Форма ---------- */
-.form-grid{display:grid;gap:34px}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
 @media(min-width:960px){.form-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:60px;align-items:start}}
 form.lead{display:grid;gap:20px}
 .form-row{display:grid;gap:20px}
@@ -561,7 +600,7 @@ form.lead[data-on="false"]{display:none}
 .ftr .logo{color:var(--deep-ink)}
 .ftr .logo-mark{border-color:var(--deep-ink-2);color:var(--deep-ink)}
 .ftr .logo i{color:var(--deep-ink-2)}
-.ftr-grid{display:grid;gap:36px}
+.ftr-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:36px}
 @media(min-width:760px){.ftr-grid{grid-template-columns:1.4fr 1fr 1fr}}
 .ftr h4{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--deep-ink-2);font-weight:500;margin-bottom:18px}
 .ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -598,7 +637,11 @@ form.lead[data-on="false"]{display:none}
   background:var(--pine);color:#F2FBF7;font-weight:600;font-size:14.5px;letter-spacing:-.008em
 }
 .kz-badge svg{width:17px;height:17px}
-.kz-note{border:1.5px solid var(--pine);background:var(--pine-soft);padding:30px;display:grid;gap:14px;border-radius:var(--r)}
+.kz-note{
+  border:1px solid color-mix(in srgb,var(--pine) 45%,transparent);
+  background:linear-gradient(180deg,var(--pine-soft),transparent);
+  padding:30px;display:grid;gap:14px;border-radius:var(--r);box-shadow:var(--lift)
+}
 @media(min-width:760px){.kz-note{padding:38px}}
 .kz-note b{font-family:var(--serif);font-size:clamp(22px,3.4vw,34px);font-weight:700;letter-spacing:-.03em;line-height:1.14;color:var(--pine-ink)}
 .kz-note p{color:var(--ink-2);max-width:62ch;font-size:16.5px;line-height:1.6}
@@ -612,7 +655,7 @@ form.lead[data-on="false"]{display:none}
 <div class="pagewrap" data-page="home">
 
 <svg style="display:none" aria-hidden="true">
-  <symbol id="i-cross" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24"><path d="M3.6 10.4 12 3.6l8.4 6.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 12.4v6.2M8.9 15.5h6.2" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" fill="none"/><path d="M5.4 12v7.9a.9.9 0 0 0 .9.9h11.4a.9.9 0 0 0 .9-.9V12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".55"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.6 4.2-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4.2 1.6v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" fill="none"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1a12 12 0 0 1-6.1-5.3c-.5-.8-.8-1.7-.8-2.5 0-.9.5-1.4.8-1.7.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.6l-.4.5c-.1.2-.3.3-.1.6a8 8 0 0 0 3.6 3.1c.3.2.5.1.6 0l.8-1c.2-.2.4-.2.6-.1l2 1c.2.1.4.2.4.3v.7Z" fill="currentColor"/></symbol>
@@ -654,7 +697,7 @@ form.lead[data-on="false"]{display:none}
           <button type="button" data-lang="kz" aria-pressed="false">ҚАЗ</button>
         </div>
         <button class="icon-btn" id="theme" type="button" aria-label="Тёмная тема"><svg><use href="#i-moon"/></svg></button>
-        <a class="hdr-phone" data-phone data-tel href="#">+7 707 000 00 00</a>
+        <a class="hdr-phone" data-phone data-tel href="#">+7 775 638 13 65</a>
         <a class="btn btn-wa btn-sm" data-wa href="#"><svg width="18" height="18"><use href="#i-wa"/></svg>WhatsApp</a>
         <button class="icon-btn burger" id="burger" type="button" aria-label="Меню" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
       </div>
@@ -680,7 +723,7 @@ form.lead[data-on="false"]{display:none}
   <a class="m" href="kursy.html"><span class="n">07</span><span data-i18n="navCourse">Курсы медсестры</span></a>
   <div class="cta">
     <a class="btn btn-wa btn-block" data-wa href="#"><svg width="19" height="19"><use href="#i-wa"/></svg><span data-i18n="ctaWa">Написать в WhatsApp</span></a>
-    <a class="btn btn-out btn-block" data-tel href="#"><svg width="19" height="19"><use href="#i-phone"/></svg><span data-phone>+7 707 000 00 00</span></a>
+    <a class="btn btn-out btn-block" data-tel href="#"><svg width="19" height="19"><use href="#i-phone"/></svg><span data-phone>+7 775 638 13 65</span></a>
   </div>
 </div>
 
@@ -722,7 +765,7 @@ form.lead[data-on="false"]{display:none}
           <span class="clock" id="clock">--:-- · Астана</span>
           <span class="oncall-note" data-i18n="dutyNote">Не отвечаю — значит на процедуре. Перезвоню в течение 10 минут.</span>
         </div>
-        <a class="bignum" data-tel data-phone href="#">+7 707 000 00 00</a>
+        <a class="bignum" data-tel data-phone href="#">+7 775 638 13 65</a>
         <div class="oncall-cta">
           <a class="btn btn-wa" data-wa href="#"><svg width="19" height="19"><use href="#i-wa"/></svg><span data-i18n="ctaWa">Написать в WhatsApp</span></a>
           <a class="btn btn-onlight" href="#services"><span data-i18n="ctaServices">Посмотреть услуги</span><svg width="18" height="18"><use href="#i-arrow"/></svg></a>
@@ -894,7 +937,7 @@ form.lead[data-on="false"]{display:none}
       </div>
       <div class="urg-box">
         <span class="label" data-i18n="urgBoxLab">Звонок принимаю сразу</span>
-        <a class="bignum" data-tel data-phone href="#">+7 707 000 00 00</a>
+        <a class="bignum" data-tel data-phone href="#">+7 775 638 13 65</a>
         <a class="btn btn-signal btn-block" style="margin-top:10px" data-tel href="#"><svg width="19" height="19"><use href="#i-phone"/></svg><span data-i18n="urgCall">Позвонить сейчас</span></a>
         <a class="btn btn-onlight btn-block" data-wa data-wa-msg="detox" href="#"><svg width="19" height="19"><use href="#i-wa"/></svg><span data-i18n="urgWa">Написать в WhatsApp</span></a>
       </div>
@@ -991,13 +1034,10 @@ form.lead[data-on="false"]{display:none}
       <h2 data-i18n="aboutH">18 лет я делаю одно и то же — и делаю это хорошо</h2>
     </div>
     <div class="about rise">
-      <div class="frame">
-        <div class="frame-in">
-          <div>
-            <svg><use href="#i-user"/></svg>
-            <p data-i18n="portraitNote">Здесь будет ваше фото<br>в медицинской форме</p>
-          </div>
-        </div>
+      <div class="about-side">
+        <p class="bigstat"><b data-count="18">18</b><span data-i18n="aboutStat1">лет в профессии</span></p>
+        <p class="bigstat"><b data-count="5000" data-suffix="+">5000+</b><span data-i18n="aboutStat2">процедур на дому</span></p>
+        <p class="bigstat"><b>24/7</b><span data-i18n="aboutStat3">приём вызовов</span></p>
       </div>
       <div>
         <p class="pull" data-i18n="aboutPull">«Руки должны быть спокойными, а голова — холодной». Этому меня научил стационар, и с тех пор ничего не изменилось.</p>
@@ -1116,7 +1156,7 @@ form.lead[data-on="false"]{display:none}
       <div>
         <div class="aside-box">
           <b data-i18n="fBox1">Быстрее всего — позвонить</b>
-          <a class="big" data-tel data-phone href="#">+7 707 000 00 00</a>
+          <a class="big" data-tel data-phone href="#">+7 775 638 13 65</a>
           <p style="margin-top:10px" data-i18n="fBox1p">Круглосуточно, без выходных</p>
         </div>
         <div class="aside-box">
@@ -1195,7 +1235,7 @@ form.lead[data-on="false"]{display:none}
       <div>
         <h4 data-i18n="ftrContacts">Контакты</h4>
         <ul>
-          <li><a data-tel data-phone href="#">+7 707 000 00 00</a></li>
+          <li><a data-tel data-phone href="#">+7 775 638 13 65</a></li>
           <li><a data-wa href="#">WhatsApp</a></li>
           <li><span data-i18n="ftrHours">Круглосуточно, без выходных</span></li>
           <li><span data-i18n="ftrCity">Астана</span></li>
@@ -1218,7 +1258,7 @@ form.lead[data-on="false"]{display:none}
 </div>
 <div class="pagewrap" data-page="kursy">
 <svg style="display:none" aria-hidden="true">
-  <symbol id="i-cross" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24"><path d="M3.6 10.4 12 3.6l8.4 6.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 12.4v6.2M8.9 15.5h6.2" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" fill="none"/><path d="M5.4 12v7.9a.9.9 0 0 0 .9.9h11.4a.9.9 0 0 0 .9-.9V12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".55"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.6 4.2-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4.2 1.6v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" fill="none"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1a12 12 0 0 1-6.1-5.3c-.5-.8-.8-1.7-.8-2.5 0-.9.5-1.4.8-1.7.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.6l-.4.5c-.1.2-.3.3-.1.6a8 8 0 0 0 3.6 3.1c.3.2.5.1.6 0l.8-1c.2-.2.4-.2.6-.1l2 1c.2.1.4.2.4.3v.7Z" fill="currentColor"/></symbol>
@@ -1257,7 +1297,7 @@ form.lead[data-on="false"]{display:none}
           <button type="button" data-lang="kz" aria-pressed="true">ҚАЗ</button>
         </div>
         <button class="icon-btn" id="theme" type="button" aria-label="Тёмная тема"><svg><use href="#i-moon"/></svg></button>
-        <a class="hdr-phone" data-phone data-tel href="#">+7 707 000 00 00</a>
+        <a class="hdr-phone" data-phone data-tel href="#">+7 775 638 13 65</a>
         <a class="btn btn-wa btn-sm" data-wa data-wa-msg="course" href="#"><svg width="18" height="18"><use href="#i-wa"/></svg>WhatsApp</a>
         <button class="icon-btn burger" id="burger" type="button" aria-label="Меню" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
       </div>
@@ -1282,7 +1322,7 @@ form.lead[data-on="false"]{display:none}
   <a class="m" href="index.html"><span class="n">06</span><span data-i18n="kNavHome">Медсестра на дом</span></a>
   <div class="cta">
     <a class="btn btn-wa btn-block" data-wa data-wa-msg="course" href="#"><svg width="19" height="19"><use href="#i-wa"/></svg><span data-i18n="kCtaSign">Записаться на курс</span></a>
-    <a class="btn btn-out btn-block" data-tel href="#"><svg width="19" height="19"><use href="#i-phone"/></svg><span data-phone>+7 707 000 00 00</span></a>
+    <a class="btn btn-out btn-block" data-tel href="#"><svg width="19" height="19"><use href="#i-phone"/></svg><span data-phone>+7 775 638 13 65</span></a>
   </div>
 </div>
 
@@ -1323,7 +1363,7 @@ form.lead[data-on="false"]{display:none}
           <span class="clock" id="clock">--:-- · Астана</span>
           <span class="oncall-note" data-i18n="kSignL">Оставьте имя и телефон — скажу дату старта ближайшей группы.</span>
         </div>
-        <a class="bignum" data-tel data-phone href="#">+7 707 000 00 00</a>
+        <a class="bignum" data-tel data-phone href="#">+7 775 638 13 65</a>
         <div class="oncall-cta">
           <a class="btn btn-wa" data-wa data-wa-msg="course" href="#"><svg width="19" height="19"><use href="#i-wa"/></svg><span data-i18n="kCtaSign">Записаться на курс</span></a>
           <a class="btn btn-onlight" href="#practice"><span data-i18n="kCtaProgram">Посмотреть программу</span><svg width="18" height="18"><use href="#i-arrow"/></svg></a>
@@ -1462,13 +1502,10 @@ form.lead[data-on="false"]{display:none}
       <h2 data-i18n="kTeachH">Кто учит</h2>
     </div>
     <div class="about rise">
-      <div class="frame">
-        <div class="frame-in">
-          <div>
-            <svg><use href="#i-user"/></svg>
-            <p data-i18n="portraitNote">Здесь будет ваше фото<br>в медицинской форме</p>
-          </div>
-        </div>
+      <div class="about-side">
+        <p class="bigstat"><b>18</b><span data-i18n="aboutStat1">лет в профессии</span></p>
+        <p class="bigstat"><b>11</b><span data-i18n="kTeachStat2">практических навыков</span></p>
+        <p class="bigstat"><b>KZ</b><span data-i18n="kTeachStat3">язык обучения</span></p>
       </div>
       <div>
         <p class="pull" data-i18n="kTeachPull">На занятиях я смотрю руки каждого отдельно. Показываю — и заставляю сделать самому.</p>
@@ -1524,7 +1561,7 @@ form.lead[data-on="false"]{display:none}
       <div>
         <div class="aside-box">
           <b data-i18n="fBox1">Быстрее всего — позвонить</b>
-          <a class="big" data-tel data-phone href="#">+7 707 000 00 00</a>
+          <a class="big" data-tel data-phone href="#">+7 775 638 13 65</a>
           <p style="margin-top:10px" data-i18n="fBox1p">Круглосуточно, без выходных</p>
         </div>
         <div class="aside-box">
@@ -1598,7 +1635,7 @@ form.lead[data-on="false"]{display:none}
       <div>
         <h4 data-i18n="ftrContacts">Контакты</h4>
         <ul>
-          <li><a data-tel data-phone href="#">+7 707 000 00 00</a></li>
+          <li><a data-tel data-phone href="#">+7 775 638 13 65</a></li>
           <li><a data-wa data-wa-msg="course" href="#">WhatsApp</a></li>
           <li><span data-i18n="ftrHours">Круглосуточно, без выходных</span></li>
           <li><span data-i18n="ftrCity">Астана</span></li>
@@ -1620,7 +1657,7 @@ form.lead[data-on="false"]{display:none}
 </div>
 <div class="pagewrap" data-page="policy">
 <svg style="display:none" aria-hidden="true">
-  <symbol id="i-cross" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24"><path d="M3.6 10.4 12 3.6l8.4 6.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 12.4v6.2M8.9 15.5h6.2" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" fill="none"/><path d="M5.4 12v7.9a.9.9 0 0 0 .9.9h11.4a.9.9 0 0 0 .9-.9V12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".55"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5m6 6-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
 </svg>
 
@@ -1673,7 +1710,7 @@ form.lead[data-on="false"]{display:none}
       </div>
       <div>
         <h3 style="margin-bottom:10px">8. Контакты</h3>
-        <p style="color:var(--ink-2)">По любым вопросам об обработке данных: <a data-tel data-phone  href="#">+7 707 000 00 00</a>.</p>
+        <p style="color:var(--ink-2)">По любым вопросам об обработке данных: <a data-tel data-phone  href="#">+7 775 638 13 65</a>.</p>
       </div>
     </div>
 
@@ -1730,8 +1767,8 @@ window.CONFIG = {
   person:   { ru: "Гульнара",  kz: "Гүлнара" },   // имя для сайта
   surname:  { ru: "",          kz: "" },          // фамилия, если нужна
 
-  phone:        "+7 707 000 00 00",   // как показывать на сайте
-  phoneDigits:  "77070000000",        // только цифры, для tel: и wa.me
+  phone:        "+7 775 638 13 65",   // как показывать на сайте
+  phoneDigits:  "77756381365",        // только цифры, для tel: и wa.me
 
   city:      { ru: "Астана",  kz: "Астана" },
   hours:     { ru: "Круглосуточно, без выходных", kz: "Тәулік бойы, демалыссыз" },
@@ -1887,7 +1924,11 @@ prTrip:"Қала бойынша шығу", prNight:"Түнгі шығу, 20:00�
 prFoot:"5 күннен басталатын курс — жеңілдікпен. Төлем процедурадан кейін қолма-қол немесе аударыммен.",
 
 /* — обо мне — */
-portraitNote:"Мұнда сіздің<br>медициналық формадағы фотоңыз болады",
+aboutStat1:"жыл мамандықта",
+aboutStat2:"үйде орындалған процедура",
+aboutStat3:"шақыртуды қабылдау",
+kTeachStat2:"практикалық дағды",
+kTeachStat3:"оқыту тілі",
 aboutEye:"Мен туралы",
 aboutH:"18 жыл бойы бір істі істеп келемін — және оны жақсы істеймін",
 aboutP1:"Мен — медициналық бикемін. Стационардан бастадым, қолымнан мыңдаған процедура өтті — қарапайым уколдан бастап химиотерапиядан кейінгі қиын веналарға дейін.",

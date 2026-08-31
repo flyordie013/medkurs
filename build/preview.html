@@ -53,7 +53,7 @@
   --r-lg:24px;
   --r-pill:999px;
 
-  --container:1180px;
+  --container:1240px;
   --gutter:20px;
   --header-h:72px;
 }
@@ -189,6 +189,11 @@ p{margin:0}
 }
 .nav__link:hover{color:var(--text-primary);background:var(--surface-secondary)}
 .nav__link[aria-current="true"]{color:var(--accent);background:var(--accent-soft)}
+/* Ссылка на другой раздел бизнеса — обучение. Отделяем визуально. */
+.nav__link--course{
+  margin-left:8px;border:1.5px solid var(--accent);color:var(--accent);font-weight:650
+}
+.nav__link--course:hover{background:var(--accent);color:var(--accent-contrast)}
 .header__actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex:0 0 auto}
 .icon-btn{
   width:42px;height:42px;display:grid;place-items:center;border-radius:var(--r-sm);
@@ -250,6 +255,25 @@ p{margin:0}
 }
 .sheet__link svg{width:18px;height:18px;color:var(--text-muted)}
 .sheet__cta{margin-top:auto;padding-top:24px;display:grid;gap:10px}
+/* Обучение — отдельное направление: выносим из общего списка в карточку. */
+.sheet__group{margin-top:26px}
+.sheet__group-title{
+  font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:12px
+}
+.sheet__feature{
+  display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;
+  padding:18px;border-radius:var(--r-md);border:1.5px solid var(--accent);
+  background:var(--accent-soft);text-decoration:none;color:var(--text-primary)
+}
+.sheet__feature-icon{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:var(--accent);color:var(--accent-contrast)
+}
+.sheet__feature-icon svg{width:22px;height:22px}
+.sheet__feature-name{display:block;font-size:18px;font-weight:700;letter-spacing:-.02em}
+.sheet__feature-hint{display:block;font-size:13.5px;color:var(--text-secondary);margin-top:3px}
+.sheet__feature svg.sheet__feature-arrow{width:18px;height:18px;color:var(--accent)}
 
 /* --- 6. SECTION RHYTHM --------------------------------------------------- */
 /* Разный ритм: секции намеренно не одинаковые */
@@ -288,12 +312,11 @@ p{margin:0}
 .chip svg{width:15px;height:15px;color:var(--accent);flex:0 0 auto}
 .chip b{font-weight:750;color:var(--text-primary)}
 
-/* Карточка контакта. Слот под реальное фото — .contact-card__media */
+/* Карточка контакта. Фотографий специалиста на сайте нет и не будет. */
 .contact-card{
   background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
   box-shadow:var(--shadow-lg);overflow:hidden
 }
-.contact-card__media{display:none}          /* включится, когда появится фото */
 .contact-card__body{padding:26px}
 @media(min-width:600px){.contact-card__body{padding:30px}}
 .status{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:var(--success)}
@@ -489,28 +512,20 @@ textarea.control{min-height:108px;padding:14px 15px;line-height:1.55;resize:vert
 
 /* --- 13. ABOUT ----------------------------------------------------------- */
 .about{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-items:start}
-@media(min-width:900px){.about{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px}}
+@media(min-width:900px){.about{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:60px}}
 /* Слот под реальное фото: пока фото нет — показываем инициал и подпись */
-.portrait{
-  border-radius:var(--r-lg);overflow:hidden;background:var(--surface);border:1px solid var(--border);
-  box-shadow:var(--shadow-md)
+/* Фотографий специалиста нет — блок держится на типографике.
+   Слева крупная цитата, справа рассказ и подтверждённые факты. */
+.about__aside{display:grid;gap:18px;align-content:start}
+.about__badge{
+  justify-self:start;display:inline-flex;align-items:center;gap:9px;padding:9px 16px;
+  border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);
+  font-size:13.5px;font-weight:700
 }
-.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.portrait__placeholder{
-  aspect-ratio:4/5;display:grid;place-items:center;gap:14px;padding:28px;text-align:center;
-  background:linear-gradient(160deg,var(--accent-soft),var(--surface))
-}
-.portrait__initial{
-  width:82px;height:82px;border-radius:50%;display:grid;place-items:center;margin-inline:auto;
-  background:var(--accent);color:var(--accent-contrast);font-size:32px;font-weight:750;letter-spacing:-.03em
-}
-.portrait__caption{font-size:13.5px;color:var(--text-secondary);line-height:1.5;max-width:24ch;margin-inline:auto}
-.portrait__foot{padding:16px 20px;border-top:1px solid var(--border);background:var(--surface)}
-.portrait__name{font-size:17px;font-weight:750;letter-spacing:-.02em}
-.portrait__role{font-size:14px;color:var(--text-muted);margin-top:2px}
+.about__badge svg{width:16px;height:16px}
 .about__quote{
-  font-size:clamp(19px,2.4vw,25px);font-weight:650;letter-spacing:-.022em;line-height:1.32;
-  margin-bottom:20px;text-wrap:balance
+  font-size:clamp(21px,3vw,32px);font-weight:700;letter-spacing:-.028em;line-height:1.24;
+  margin:0;text-wrap:balance;color:var(--text-primary)
 }
 .about__text{color:var(--text-secondary);line-height:1.68;margin-bottom:16px;max-width:60ch}
 .creds{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--border)}
@@ -708,11 +723,10 @@ textarea.control{min-height:108px;padding:14px 15px;line-height:1.55;resize:vert
 
       <nav class="nav" aria-label="Основные разделы">
         <a class="nav__link" href="#services" data-i18n="navServices">Услуги</a>
-        <a class="nav__link" href="#process" data-i18n="navHow">Как это работает</a>
+        <a class="nav__link" href="#process" data-i18n="navHowShort">Как работает</a>
         <a class="nav__link" href="#price" data-i18n="navPrices">Стоимость</a>
-        <a class="nav__link" href="#about" data-i18n="navAbout">Обо мне</a>
         <a class="nav__link" href="#faq" data-i18n="navFaq">Вопросы</a>
-        <a class="nav__link" href="kursy.html" data-i18n="navCourse">Курсы</a>
+        <a class="nav__link nav__link--course" href="kursy.html" data-i18n="navCourseShort">Курсы</a>
       </nav>
 
       <div class="header__actions">
@@ -751,13 +765,24 @@ textarea.control{min-height:108px;padding:14px 15px;line-height:1.55;resize:vert
         <svg aria-hidden="true"><use href="#ic-close"/></svg>
       </button>
     </div>
+    <p class="sheet__group-title" data-i18n="menuGroupHome">Медсестра на дом</p>
     <a class="sheet__link" href="#services"><span data-i18n="navServices">Услуги</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#urgent"><span data-i18n="navUrgent">Срочный вызов</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#process"><span data-i18n="navHow">Как это работает</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#price"><span data-i18n="navPrices">Стоимость</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#about"><span data-i18n="navAbout">Обо мне</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#faq"><span data-i18n="navFaq">Вопросы</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
-    <a class="sheet__link" href="kursy.html"><span data-i18n="navCourse">Курсы медсестры</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
+    <div class="sheet__group">
+      <p class="sheet__group-title" data-i18n="menuGroupLearn">Обучение</p>
+      <a class="sheet__feature" href="kursy.html">
+        <span class="sheet__feature-icon" aria-hidden="true"><svg><use href="#ic-award"/></svg></span>
+        <span>
+          <span class="sheet__feature-name" data-i18n="navCourse">Курсы медсестры</span>
+          <span class="sheet__feature-hint" data-i18n="menuCourseHint">Обучение на казахском · сертификат</span>
+        </span>
+        <svg class="sheet__feature-arrow" aria-hidden="true"><use href="#ic-arrow"/></svg>
+      </a>
+    </div>
     <div class="sheet__cta">
       <a class="btn btn--wa btn--block" data-wa href="#"><svg width="19" height="19" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="ctaWhatsApp">Написать в WhatsApp</span></a>
       <a class="btn btn--outline btn--block" data-tel href="#"><svg width="19" height="19" aria-hidden="true"><use href="#ic-phone"/></svg><span data-phone>+7 775 778 64 83</span></a>
@@ -799,9 +824,6 @@ textarea.control{min-height:108px;padding:14px 15px;line-height:1.55;resize:vert
 
       <!-- Карточка контакта. Слот .contact-card__media ждёт реального фото. -->
       <aside class="contact-card" aria-label="Контакты">
-        <div class="contact-card__media" data-photo-slot>
-          <!-- <img src="assets/nurse.jpg" alt="" width="960" height="720"> -->
-        </div>
         <div class="contact-card__body">
           <p class="status"><span class="status__dot"><i></i></span><span data-i18n="statusOnline">Принимаю вызовы</span></p>
           <a class="contact-card__phone" data-tel data-phone href="#">+7 775 778 64 83</a>
@@ -1089,24 +1111,13 @@ textarea.control{min-height:108px;padding:14px 15px;line-height:1.55;resize:vert
 <section class="section" id="about" aria-labelledby="aboutTitle">
   <div class="container">
     <div class="about reveal">
-      <!-- Слот под реальное фото: замените .portrait__placeholder на <img>. -->
-      <figure class="portrait" style="margin:0">
-        <div class="portrait__placeholder" data-photo-slot>
-          <div>
-            <span class="portrait__initial" aria-hidden="true" id="portraitInitial">М</span>
-            <p class="portrait__caption" data-i18n="portraitCaption">Здесь будет фотография — пришлите портрет в медицинской форме, и он встанет на это место.</p>
-          </div>
-        </div>
-        <figcaption class="portrait__foot">
-          <p class="portrait__name" data-i18n="aboutName">Медицинская сестра</p>
-          <p class="portrait__role" data-i18n="aboutRole">Выезд на дом · Астана</p>
-        </figcaption>
-      </figure>
-
-      <div>
+      <div class="about__aside">
         <p class="eyebrow" data-i18n="aboutEyebrow">Обо мне</p>
-        <h2 id="aboutTitle" style="margin:14px 0 20px" data-i18n="aboutTitle">18 лет практики медицинской сестры</h2>
+        <h2 id="aboutTitle" data-i18n="aboutTitle">18 лет практики медицинской сестры</h2>
         <p class="about__quote" data-i18n="aboutQuote">Моя работа — аккуратно выполнить назначение врача и сделать так, чтобы человеку было спокойно.</p>
+        <span class="about__badge"><svg aria-hidden="true"><use href="#ic-globe"/></svg><span data-i18n="footLang">Қазақша · Русский</span></span>
+      </div>
+      <div>
         <p class="about__text" data-i18n="aboutText1">Я медицинская сестра со стажем 18 лет. Выезжаю на дом по Астане и работаю без выходных — принимаю вызовы и ночью.</p>
         <p class="about__text" data-i18n="aboutText2">Объясняю, что делаю и зачем, не тороплюсь и убираю за собой. Говорю на казахском и на русском — как вам удобнее.</p>
         <ul class="creds" id="credsList"></ul>
@@ -1363,8 +1374,7 @@ textarea.control{min-height:108px;padding:14px 15px;line-height:1.55;resize:vert
         <a class="nav__link" href="#who" data-i18n="kNavAbout">О курсе</a>
         <a class="nav__link" href="#program" data-i18n="kNavProgram">Программа</a>
         <a class="nav__link" href="#price" data-i18n="kNavPrice">Стоимость</a>
-        <a class="nav__link" href="#teacher" data-i18n="kNavTeacher">Преподаватель</a>
-        <a class="nav__link" href="index.html" data-i18n="kNavHome">Медсестра на дом</a>
+        <a class="nav__link nav__link--course" href="index.html" data-i18n="kNavHomeShort">Медсестра на дом</a>
       </nav>
       <div class="header__actions">
         <div class="lang" role="group" aria-label="Сайт тілі / Язык сайта">
@@ -1401,12 +1411,23 @@ textarea.control{min-height:108px;padding:14px 15px;line-height:1.55;resize:vert
         <svg aria-hidden="true"><use href="#ic-close"/></svg>
       </button>
     </div>
+    <p class="sheet__group-title" data-i18n="menuGroupLearn">Обучение</p>
     <a class="sheet__link" href="#who"><span data-i18n="kNavAbout">О курсе</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#program"><span data-i18n="kNavProgram">Программа</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#format"><span data-i18n="kFormatTitle">Как проходит обучение</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#price"><span data-i18n="kNavPrice">Стоимость</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#teacher"><span data-i18n="kNavTeacher">Преподаватель</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
-    <a class="sheet__link" href="index.html"><span data-i18n="kNavHome">Медсестра на дом</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
+    <div class="sheet__group">
+      <p class="sheet__group-title" data-i18n="menuGroupHome">Медсестра на дом</p>
+      <a class="sheet__feature" href="index.html">
+        <span class="sheet__feature-icon" aria-hidden="true"><svg><use href="#ic-logo"/></svg></span>
+        <span>
+          <span class="sheet__feature-name" data-i18n="kNavHome">Медсестра на дом</span>
+          <span class="sheet__feature-hint" data-i18n="menuHomeHint">Уколы, капельницы, перевязки в Астане</span>
+        </span>
+        <svg class="sheet__feature-arrow" aria-hidden="true"><use href="#ic-arrow"/></svg>
+      </a>
+    </div>
     <div class="sheet__cta">
       <a class="btn btn--wa btn--block" data-wa data-wa-msg="course" href="#"><svg width="19" height="19" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="kCtaSignup">Записаться на курс</span></a>
       <a class="btn btn--outline btn--block" data-tel href="#"><svg width="19" height="19" aria-hidden="true"><use href="#ic-phone"/></svg><span data-phone>+7 775 778 64 83</span></a>
@@ -1606,22 +1627,13 @@ textarea.control{min-height:108px;padding:14px 15px;line-height:1.55;resize:vert
 <section class="section section--tinted" id="teacher" aria-labelledby="kTeachTitle">
   <div class="container">
     <div class="about reveal">
-      <figure class="portrait" style="margin:0">
-        <div class="portrait__placeholder" data-photo-slot>
-          <div>
-            <span class="portrait__initial" aria-hidden="true" id="portraitInitial">М</span>
-            <p class="portrait__caption" data-i18n="portraitCaption">Здесь будет фотография — пришлите портрет в медицинской форме, и он встанет на это место.</p>
-          </div>
-        </div>
-        <figcaption class="portrait__foot">
-          <p class="portrait__name" data-i18n="aboutName">Медицинская сестра</p>
-          <p class="portrait__role" data-i18n="kTeachEyebrow">Преподаватель</p>
-        </figcaption>
-      </figure>
-      <div>
+      <div class="about__aside">
         <p class="eyebrow" data-i18n="kTeachEyebrow">Преподаватель</p>
-        <h2 id="kTeachTitle" style="margin:14px 0 20px" data-i18n="kTeachTitle">Кто учит</h2>
+        <h2 id="kTeachTitle" data-i18n="kTeachTitle">Кто учит</h2>
         <p class="about__quote" data-i18n="kTeachQuote">На занятиях смотрю руки каждого отдельно: показываю — и заставляю сделать самому.</p>
+        <span class="about__badge"><svg aria-hidden="true"><use href="#ic-globe"/></svg>Қазақ тілінде</span>
+      </div>
+      <div>
         <p class="about__text" data-i18n="kTeachText1">Я практикующая медицинская сестра со стажем 18 лет. Выезжаю на дом, поэтому учу не книжной теории, а тому, что реально нужно в работе.</p>
         <p class="about__text" data-i18n="kTeachText2">Как держать иглу, как найти вену — всё показываю на муляже, а потом смотрю, как это делаете вы.</p>
         <ul class="creds" id="credsList"></ul>
@@ -2058,7 +2070,14 @@ window.KZ = {
 skip:"Мазмұнға өту",
 brandName:"Үйге медбике", brandMeta:"Астана · демалыссыз",
 navServices:"Қызметтер", navHow:"Қалай өтеді", navPrices:"Құны",
-navAbout:"Мен туралы", navFaq:"Сұрақтар", navCourse:"Курстар", navUrgent:"Шұғыл шақырту",
+navAbout:"Мен туралы", navFaq:"Сұрақтар", navCourse:"Медбике курстары",
+navCourseShort:"Курстар",
+navHowShort:"Қалай өтеді",
+kNavHomeShort:"Үйге медбике",
+menuGroupHome:"Үйге медбике",
+menuGroupLearn:"Оқыту",
+menuCourseHint:"Қазақ тілінде оқыту · сертификат",
+menuHomeHint:"Астанада укол, тамшылатқыш, таңу", navUrgent:"Шұғыл шақырту",
 ctaWhatsApp:"WhatsApp-қа жазу", ctaCall:"Қоңырау шалу", ctaCallNow:"Қазір қоңырау шалу",
 moreLabel:"Толығырақ", tbd:"нақтыланады", priceOnRequest:"Бағасы сұрау бойынша",
 
@@ -2161,8 +2180,6 @@ calcAsk:"Құнын нақтылау",
 trustEyebrow:"Сенім", trustTitle:"Процедураны неге сеніп тапсыруға болады",
 
 /* — обо мне — */
-portraitCaption:"Мұнда фотосурет болады — медициналық формадағы портретті жіберсеңіз, осы орынға қойылады.",
-aboutName:"Медициналық бике", aboutRole:"Үйге шығу · Астана",
 aboutEyebrow:"Мен туралы", aboutTitle:"Медбике болып 18 жыл тәжірибе",
 aboutQuote:"Менің жұмысым — дәрігердің тағайындауын ұқыпты орындау және адамның көңілін жайлы ету.",
 aboutText1:"Мен 18 жыл тәжірибесі бар медициналық бикемін. Астана бойынша үйге шығамын, демалыссыз жұмыс істеймін — шақыртуды түнде де қабылдаймын.",
@@ -2402,11 +2419,6 @@ kFooterAbout:"Астанада практик медбике жүргізеті�
       if (el.hasAttribute('data-cfg-money')) v = money(v);
       el.textContent = v ? v : (t('tbd') || 'уточняется');
     });
-    var init = $('#portraitInitial');
-    if (init) {
-      var nm = (C.person && (C.person[lang] || C.person.ru)) || '';
-      init.textContent = nm ? nm.trim().charAt(0).toUpperCase() : 'М';
-    }
   }
 
   /* ------------------------------------------- показатели / квалификация -- */

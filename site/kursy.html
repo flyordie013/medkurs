@@ -92,8 +92,7 @@
         <a class="nav__link" href="#who" data-i18n="kNavAbout">О курсе</a>
         <a class="nav__link" href="#program" data-i18n="kNavProgram">Программа</a>
         <a class="nav__link" href="#price" data-i18n="kNavPrice">Стоимость</a>
-        <a class="nav__link" href="#teacher" data-i18n="kNavTeacher">Преподаватель</a>
-        <a class="nav__link" href="index.html" data-i18n="kNavHome">Медсестра на дом</a>
+        <a class="nav__link nav__link--course" href="index.html" data-i18n="kNavHomeShort">Медсестра на дом</a>
       </nav>
       <div class="header__actions">
         <div class="lang" role="group" aria-label="Сайт тілі / Язык сайта">
@@ -130,12 +129,23 @@
         <svg aria-hidden="true"><use href="#ic-close"/></svg>
       </button>
     </div>
+    <p class="sheet__group-title" data-i18n="menuGroupLearn">Обучение</p>
     <a class="sheet__link" href="#who"><span data-i18n="kNavAbout">О курсе</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#program"><span data-i18n="kNavProgram">Программа</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#format"><span data-i18n="kFormatTitle">Как проходит обучение</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#price"><span data-i18n="kNavPrice">Стоимость</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#teacher"><span data-i18n="kNavTeacher">Преподаватель</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
-    <a class="sheet__link" href="index.html"><span data-i18n="kNavHome">Медсестра на дом</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
+    <div class="sheet__group">
+      <p class="sheet__group-title" data-i18n="menuGroupHome">Медсестра на дом</p>
+      <a class="sheet__feature" href="index.html">
+        <span class="sheet__feature-icon" aria-hidden="true"><svg><use href="#ic-logo"/></svg></span>
+        <span>
+          <span class="sheet__feature-name" data-i18n="kNavHome">Медсестра на дом</span>
+          <span class="sheet__feature-hint" data-i18n="menuHomeHint">Уколы, капельницы, перевязки в Астане</span>
+        </span>
+        <svg class="sheet__feature-arrow" aria-hidden="true"><use href="#ic-arrow"/></svg>
+      </a>
+    </div>
     <div class="sheet__cta">
       <a class="btn btn--wa btn--block" data-wa data-wa-msg="course" href="#"><svg width="19" height="19" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="kCtaSignup">Записаться на курс</span></a>
       <a class="btn btn--outline btn--block" data-tel href="#"><svg width="19" height="19" aria-hidden="true"><use href="#ic-phone"/></svg><span data-phone>+7 775 778 64 83</span></a>
@@ -335,22 +345,13 @@
 <section class="section section--tinted" id="teacher" aria-labelledby="kTeachTitle">
   <div class="container">
     <div class="about reveal">
-      <figure class="portrait" style="margin:0">
-        <div class="portrait__placeholder" data-photo-slot>
-          <div>
-            <span class="portrait__initial" aria-hidden="true" id="portraitInitial">М</span>
-            <p class="portrait__caption" data-i18n="portraitCaption">Здесь будет фотография — пришлите портрет в медицинской форме, и он встанет на это место.</p>
-          </div>
-        </div>
-        <figcaption class="portrait__foot">
-          <p class="portrait__name" data-i18n="aboutName">Медицинская сестра</p>
-          <p class="portrait__role" data-i18n="kTeachEyebrow">Преподаватель</p>
-        </figcaption>
-      </figure>
-      <div>
+      <div class="about__aside">
         <p class="eyebrow" data-i18n="kTeachEyebrow">Преподаватель</p>
-        <h2 id="kTeachTitle" style="margin:14px 0 20px" data-i18n="kTeachTitle">Кто учит</h2>
+        <h2 id="kTeachTitle" data-i18n="kTeachTitle">Кто учит</h2>
         <p class="about__quote" data-i18n="kTeachQuote">На занятиях смотрю руки каждого отдельно: показываю — и заставляю сделать самому.</p>
+        <span class="about__badge"><svg aria-hidden="true"><use href="#ic-globe"/></svg>Қазақ тілінде</span>
+      </div>
+      <div>
         <p class="about__text" data-i18n="kTeachText1">Я практикующая медицинская сестра со стажем 18 лет. Выезжаю на дом, поэтому учу не книжной теории, а тому, что реально нужно в работе.</p>
         <p class="about__text" data-i18n="kTeachText2">Как держать иглу, как найти вену — всё показываю на муляже, а потом смотрю, как это делаете вы.</p>
         <ul class="creds" id="credsList"></ul>

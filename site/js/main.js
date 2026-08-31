@@ -117,11 +117,6 @@
       if (el.hasAttribute('data-cfg-money')) v = money(v);
       el.textContent = v ? v : (t('tbd') || 'уточняется');
     });
-    var init = $('#portraitInitial');
-    if (init) {
-      var nm = (C.person && (C.person[lang] || C.person.ru)) || '';
-      init.textContent = nm ? nm.trim().charAt(0).toUpperCase() : 'М';
-    }
   }
 
   /* ------------------------------------------- показатели / квалификация -- */

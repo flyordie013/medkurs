@@ -92,11 +92,10 @@
 
       <nav class="nav" aria-label="Основные разделы">
         <a class="nav__link" href="#services" data-i18n="navServices">Услуги</a>
-        <a class="nav__link" href="#process" data-i18n="navHow">Как это работает</a>
+        <a class="nav__link" href="#process" data-i18n="navHowShort">Как работает</a>
         <a class="nav__link" href="#price" data-i18n="navPrices">Стоимость</a>
-        <a class="nav__link" href="#about" data-i18n="navAbout">Обо мне</a>
         <a class="nav__link" href="#faq" data-i18n="navFaq">Вопросы</a>
-        <a class="nav__link" href="kursy.html" data-i18n="navCourse">Курсы</a>
+        <a class="nav__link nav__link--course" href="kursy.html" data-i18n="navCourseShort">Курсы</a>
       </nav>
 
       <div class="header__actions">
@@ -135,13 +134,24 @@
         <svg aria-hidden="true"><use href="#ic-close"/></svg>
       </button>
     </div>
+    <p class="sheet__group-title" data-i18n="menuGroupHome">Медсестра на дом</p>
     <a class="sheet__link" href="#services"><span data-i18n="navServices">Услуги</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#urgent"><span data-i18n="navUrgent">Срочный вызов</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#process"><span data-i18n="navHow">Как это работает</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#price"><span data-i18n="navPrices">Стоимость</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#about"><span data-i18n="navAbout">Обо мне</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
     <a class="sheet__link" href="#faq"><span data-i18n="navFaq">Вопросы</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
-    <a class="sheet__link" href="kursy.html"><span data-i18n="navCourse">Курсы медсестры</span><svg aria-hidden="true"><use href="#ic-arrow"/></svg></a>
+    <div class="sheet__group">
+      <p class="sheet__group-title" data-i18n="menuGroupLearn">Обучение</p>
+      <a class="sheet__feature" href="kursy.html">
+        <span class="sheet__feature-icon" aria-hidden="true"><svg><use href="#ic-award"/></svg></span>
+        <span>
+          <span class="sheet__feature-name" data-i18n="navCourse">Курсы медсестры</span>
+          <span class="sheet__feature-hint" data-i18n="menuCourseHint">Обучение на казахском · сертификат</span>
+        </span>
+        <svg class="sheet__feature-arrow" aria-hidden="true"><use href="#ic-arrow"/></svg>
+      </a>
+    </div>
     <div class="sheet__cta">
       <a class="btn btn--wa btn--block" data-wa href="#"><svg width="19" height="19" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="ctaWhatsApp">Написать в WhatsApp</span></a>
       <a class="btn btn--outline btn--block" data-tel href="#"><svg width="19" height="19" aria-hidden="true"><use href="#ic-phone"/></svg><span data-phone>+7 775 778 64 83</span></a>
@@ -183,9 +193,6 @@
 
       <!-- Карточка контакта. Слот .contact-card__media ждёт реального фото. -->
       <aside class="contact-card" aria-label="Контакты">
-        <div class="contact-card__media" data-photo-slot>
-          <!-- <img src="assets/nurse.jpg" alt="" width="960" height="720"> -->
-        </div>
         <div class="contact-card__body">
           <p class="status"><span class="status__dot"><i></i></span><span data-i18n="statusOnline">Принимаю вызовы</span></p>
           <a class="contact-card__phone" data-tel data-phone href="#">+7 775 778 64 83</a>
@@ -473,24 +480,13 @@
 <section class="section" id="about" aria-labelledby="aboutTitle">
   <div class="container">
     <div class="about reveal">
-      <!-- Слот под реальное фото: замените .portrait__placeholder на <img>. -->
-      <figure class="portrait" style="margin:0">
-        <div class="portrait__placeholder" data-photo-slot>
-          <div>
-            <span class="portrait__initial" aria-hidden="true" id="portraitInitial">М</span>
-            <p class="portrait__caption" data-i18n="portraitCaption">Здесь будет фотография — пришлите портрет в медицинской форме, и он встанет на это место.</p>
-          </div>
-        </div>
-        <figcaption class="portrait__foot">
-          <p class="portrait__name" data-i18n="aboutName">Медицинская сестра</p>
-          <p class="portrait__role" data-i18n="aboutRole">Выезд на дом · Астана</p>
-        </figcaption>
-      </figure>
-
-      <div>
+      <div class="about__aside">
         <p class="eyebrow" data-i18n="aboutEyebrow">Обо мне</p>
-        <h2 id="aboutTitle" style="margin:14px 0 20px" data-i18n="aboutTitle">18 лет практики медицинской сестры</h2>
+        <h2 id="aboutTitle" data-i18n="aboutTitle">18 лет практики медицинской сестры</h2>
         <p class="about__quote" data-i18n="aboutQuote">Моя работа — аккуратно выполнить назначение врача и сделать так, чтобы человеку было спокойно.</p>
+        <span class="about__badge"><svg aria-hidden="true"><use href="#ic-globe"/></svg><span data-i18n="footLang">Қазақша · Русский</span></span>
+      </div>
+      <div>
         <p class="about__text" data-i18n="aboutText1">Я медицинская сестра со стажем 18 лет. Выезжаю на дом по Астане и работаю без выходных — принимаю вызовы и ночью.</p>
         <p class="about__text" data-i18n="aboutText2">Объясняю, что делаю и зачем, не тороплюсь и убираю за собой. Говорю на казахском и на русском — как вам удобнее.</p>
         <ul class="creds" id="credsList"></ul>

@@ -26,7 +26,7 @@ def main() -> None:
     css = (SITE / "css" / "style.css").read_text(encoding="utf-8")
     js = "\n".join(
         (SITE / "js" / f).read_text(encoding="utf-8")
-        for f in ("config.js", "i18n.js", "main.js")
+        for f in ("config.js", "content.js", "i18n.js", "main.js")
     )
 
     parts = [
@@ -35,8 +35,7 @@ def main() -> None:
         '<link rel="preconnect" href="https://fonts.googleapis.com">',
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-        "family=IBM+Plex+Mono:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,500"
-        '&family=Onest:wght@400;500;600;700&display=swap">',
+        'family=Manrope:wght@400;500;600;700;800&display=swap">',
         "<style>\n" + css + "\n.pagewrap{display:contents}\n</style>",
     ]
 

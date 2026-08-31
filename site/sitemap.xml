@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.kz/</loc>
+    <loc>https://medkurs.vercel.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.kz/"/>
-    <xhtml:link rel="alternate" hreflang="kk" href="https://example.kz/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://medkurs.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://medkurs.vercel.app/"/>
   </url>
   <url>
-    <loc>https://example.kz/kursy.html</loc>
+    <loc>https://medkurs.vercel.app/kursy.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="kk" href="https://example.kz/kursy.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.kz/kursy.html"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://medkurs.vercel.app/kursy.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://medkurs.vercel.app/kursy.html"/>
   </url>
 </urlset>

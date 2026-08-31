@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /policy.html
 
-Sitemap: https://example.kz/sitemap.xml
+Sitemap: https://medkurs.vercel.app/sitemap.xml

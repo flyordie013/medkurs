@@ -19,11 +19,12 @@ def body_of(html: str) -> str:
     m = re.search(r"<body[^>]*>(.*)</body>", html, re.S | re.I)
     body = m.group(1) if m else html
     # внешние скрипты подключим один раз внизу
-    return re.sub(r'<script src="js/[^"]+"></script>\s*', "", body)
+    return re.sub(r'<script\b[^>]*\bsrc="js/[^"]+"[^>]*></script>\s*', "", body)
 
 
 def main() -> None:
     css = (SITE / "css" / "style.css").read_text(encoding="utf-8")
+    css = css.replace('url("../fonts/', 'url("../site/fonts/')
     js = "\n".join(
         (SITE / "js" / f).read_text(encoding="utf-8")
         for f in ("config.js", "content.js", "i18n.js", "main.js")
@@ -31,11 +32,9 @@ def main() -> None:
 
     parts = [
         '<meta charset="utf-8">',
-        "<title>Медсестра на дом в Астане</title>",
-        '<link rel="preconnect" href="https://fonts.googleapis.com">',
-        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-        'family=Manrope:wght@400;500;600;700;800&display=swap">',
+        '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">',
+        "<title>MEDBIKESI — preview</title>",
+        '<link rel="icon" href="../site/favicon.svg" type="image/svg+xml">',
         "<style>\n" + css + "\n.pagewrap{display:contents}\n</style>",
     ]
 
@@ -65,7 +64,10 @@ ROUTER = """<script>
   for (var i = 0; i < pages.length; i++) {
     if (pages[i].getAttribute('data-page') !== want) pages[i].remove();
   }
-  if (want === 'kursy') document.documentElement.setAttribute('data-default-lang', 'kz');
+  document.documentElement.setAttribute('data-page', want === 'kursy' ? 'course' : want);
+  document.documentElement.setAttribute('data-default-lang', want === 'kursy' ? 'kz' : 'ru');
+  document.documentElement.setAttribute('lang', want === 'kursy' ? 'kk' : 'ru');
+  document.body.className = want === 'kursy' ? 'course-page' : want === 'policy' ? 'policy-page' : '';
 
   document.querySelectorAll('a[href]').forEach(function (a) {
     var href = a.getAttribute('href');

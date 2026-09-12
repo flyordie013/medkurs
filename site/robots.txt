@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /policy.html
 
-Sitemap: https://medkurs.vercel.app/sitemap.xml
+Sitemap: https://medbikesi.kz/sitemap.xml

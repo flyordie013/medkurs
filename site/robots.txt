@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /policy.html
 
-Sitemap: https://medbikesi.kz/sitemap.xml
+Sitemap: https://www.medbikesi.kz/sitemap.xml

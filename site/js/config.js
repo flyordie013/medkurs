@@ -7,8 +7,8 @@ window.CONFIG = {
   brand: "MEDBIKESI",
   person: { ru: "", kz: "" },
 
-  phone: "+7 775 778 64 83",
-  phoneDigits: "77757786483",
+  phone: "+7 702 806 34 52",
+  phoneDigits: "77028063452",
   city: { ru: "Астана", kz: "Астана" },
   schedule: {
     ru: "Без выходных · ночные вызовы 20:00–08:00",
